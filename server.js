@@ -15,7 +15,7 @@ app.post('/update', function(req, res) {
         if (err) console.log(err);
         conn.query(
             'UPDATE salesforce.Reservation__c SET Phone__c = $1,Name__c = $2,Roomtype__c = $3 ,Email__c = $4',
-            [req.body.Phone__c.trim(), req.body.Name__c.trim(), req.body.Roomtype__c.trim(), req.body.Email__c.trim()],
+            [req.body.Phone.trim(), req.body.Name.trim(), req.body.Roomtype.trim(), req.body.Email.trim()],
             function(err, result) {
                 if (err != null || result.rowCount == 0) {
                   conn.query('INSERT INTO salesforce.Reservation__c (Phone__c,Name__c,Roomtype__c, Email__c) VALUES ($1, $2, $3, $4)',
