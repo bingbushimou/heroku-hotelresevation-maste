@@ -14,7 +14,7 @@ app.post('/update', function(req, res) {
         // watch for any connect issues
         if (err) console.log(err);
         conn.query(
-            'UPDATE salesforce.Reservation__c SET Phone = $1,WHERE LOWER(Name) = LOWER($2) AND LOWER(Roomtype) = LOWER($3) AND LOWER(Email) = LOWER($4)',
+            'UPDATE salesforce.Reservation__c SET Phone__c = $1,WHERE LOWER(Name__c) = LOWER($2) AND LOWER(Roomtype__c) = LOWER($3) AND LOWER(Email__c) = LOWER($4)',
             [req.body.Phone__c.trim(), req.body.Name__c.trim(), req.body.Roomtype__c.trim(), req.body.Email__c.trim()],
             function(err, result) {
                 if (err != null || result.rowCount == 0) {
